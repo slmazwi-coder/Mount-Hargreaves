@@ -16,7 +16,7 @@ export const Contact = () => {
         <h1 className="section-title">Contact Us</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-          <motion.div initial= opacity: 0, y: 24  animate= opacity: 1, y: 0 >
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
             <h2 className="text-2xl font-bold text-school-green mb-8">Get in Touch</h2>
             <div className="space-y-8">
               <div className="flex items-start gap-4">
@@ -69,8 +69,9 @@ export const Contact = () => {
           </motion.div>
 
           <motion.div
-            initial= opacity: 0, y: 24 
-            animate= opacity: 1, y: 0 
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 0.05 }}
             className="bg-gray-50 p-6 sm:p-8 md:p-10 rounded-3xl border border-gray-100 shadow-sm"
           >
             <h2 className="text-2xl font-bold text-school-green mb-8">Send us a Message</h2>

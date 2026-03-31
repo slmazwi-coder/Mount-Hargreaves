@@ -23,7 +23,12 @@ export const About = () => {
         <h1 className="section-title">About Mount Hargreaves SSS</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16 sm:mb-24">
-          <motion.div initial= opacity: 0, y: 24  whileInView= opacity: 1, y: 0  viewport= once: true >
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35 }}
+            viewport={{ once: true }}
+          >
             <h2 className="text-2xl font-bold text-school-green mb-6">Our School</h2>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               {data.historyParagraphs.map((p, i) => (
@@ -33,9 +38,10 @@ export const About = () => {
           </motion.div>
 
           <motion.div
-            initial= opacity: 0, y: 24 
-            whileInView= opacity: 1, y: 0 
-            viewport= once: true 
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, delay: 0.05 }}
+            viewport={{ once: true }}
             className="rounded-2xl overflow-hidden shadow-2xl"
           >
             {!campusFailed ? (
