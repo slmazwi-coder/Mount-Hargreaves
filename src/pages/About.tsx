@@ -23,7 +23,11 @@ export const About = () => {
         <h1 className="section-title">About Mount Hargreaves SSS</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
-          <motion.div initial= opacity: 0, y: 24  whileInView= opacity: 1, y: 0  viewport= once: true >
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
             <h2 className="text-2xl font-bold text-school-green mb-6">Our School</h2>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               {data.historyParagraphs.map((p, i) => (
@@ -32,7 +36,12 @@ export const About = () => {
             </div>
           </motion.div>
 
-          <motion.div initial= opacity: 0, y: 24  whileInView= opacity: 1, y: 0  viewport= once: true  className="rounded-2xl overflow-hidden shadow-2xl">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl overflow-hidden shadow-2xl"
+          >
             {!campusFailed ? (
               <img
                 src={campusImageUrl}
@@ -47,7 +56,9 @@ export const About = () => {
                     <ImageIcon />
                   </div>
                   <div className="font-semibold">Campus image placeholder</div>
-                  <div className="text-sm text-white/60">Add <span className="font-mono">public/assets/about/campus.jpg</span></div>
+                  <div className="text-sm text-white/60">
+                    Add <span className="font-mono">public/assets/about/campus.jpg</span>
+                  </div>
                 </div>
               </div>
             )}
@@ -76,7 +87,9 @@ export const About = () => {
                         <ImageIcon />
                       </div>
                       <div className="font-semibold">Principal image placeholder</div>
-                      <div className="text-sm">Add <span className="font-mono">public/assets/about/principal.jpg</span></div>
+                      <div className="text-sm">
+                        Add <span className="font-mono">public/assets/about/principal.jpg</span>
+                      </div>
                     </div>
                   </div>
                 )}

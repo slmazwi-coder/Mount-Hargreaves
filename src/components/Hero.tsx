@@ -34,10 +34,10 @@ export const Hero = () => {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
-          initial= opacity: 0 
-          animate= opacity: 1 
-          exit= opacity: 0 
-          transition= duration: 0.6 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.6 }}
           className="absolute inset-0"
         >
           {showImage ? (
@@ -54,15 +54,17 @@ export const Hero = () => {
                   <ImageIcon />
                 </div>
                 <div className="font-semibold">Hero image placeholder</div>
-                <div className="text-sm text-white/60">Add images to <span className="font-mono">public/assets/hero/</span></div>
+                <div className="text-sm text-white/60">
+                  Add images to <span className="font-mono">public/assets/hero/</span>
+                </div>
               </div>
             </div>
           )}
 
           <div className="absolute bottom-20 left-0 right-0 text-center z-20">
             <motion.p
-              initial= opacity: 0, y: 20 
-              animate= opacity: 1, y: 0 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               key={`caption-${currentIndex}`}
               className="text-white/85 text-lg md:text-xl font-medium tracking-wide uppercase"
             >
@@ -74,24 +76,24 @@ export const Hero = () => {
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
         <motion.h1
-          initial= opacity: 0, y: 16 
-          animate= opacity: 1, y: 0 
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
           className="text-4xl md:text-6xl font-bold mb-4 uppercase"
         >
           Mount Hargreaves SSS
         </motion.h1>
         <motion.p
-          initial= opacity: 0, y: 16 
-          animate= opacity: 1, y: 0 
-          transition= delay: 0.15 
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15 }}
           className="text-lg md:text-2xl font-light italic"
         >
           "Strive for excellence"
         </motion.p>
         <motion.div
-          initial= opacity: 0, y: 16 
-          animate= opacity: 1, y: 0 
-          transition= delay: 0.25 
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25 }}
           className="mt-8 flex gap-4"
         >
           <a href="/admissions" className="btn-primary bg-white text-school-green hover:bg-gray-100">
