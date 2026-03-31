@@ -1,6 +1,6 @@
 {
-  "name": "[SCHOOL NAME]",
-  "description": "[SCHOOL_DESCRIPTION]",
+  "name": "Mount Hargreaves Senior Secondary School",
+  "description": "Mt Hargreaves SSS is a public boarding school based in Sigoga Location, Mgubo A/A, Matatiele, Eastern Cape.",
   "requestFramePermissions": [
     "geolocation"
   ]

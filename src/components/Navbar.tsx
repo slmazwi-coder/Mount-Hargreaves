@@ -24,11 +24,11 @@ export const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-3">
               <div className="h-12 w-12 rounded-xl bg-school-green/10 flex items-center justify-center border border-school-green/20 shadow-lg font-bold text-school-green text-xl">
-                S
+                MH
               </div>
               <div className="hidden md:block">
-                <span className="text-xl font-bold text-school-green block leading-none">[SCHOOL NAME]</span>
-                <span className="text-sm font-semibold text-gray-500">HIGH SCHOOL</span>
+                <span className="text-xl font-bold text-school-green block leading-none">Mount Hargreaves SSS</span>
+                <span className="text-sm font-semibold text-gray-500">SENIOR SECONDARY SCHOOL</span>
               </div>
             </Link>
           </div>
@@ -42,7 +42,7 @@ export const Navbar = () => {
                 className={cn(
                   "px-3 py-2 rounded-md text-sm font-medium transition-colors",
                   location.pathname === link.path
-                    ? "text-school-green bg-green-50"
+                    ? "text-school-green bg-blue-50"
                     : "text-gray-600 hover:text-school-green hover:bg-gray-50"
                 )}
               >
@@ -75,7 +75,7 @@ export const Navbar = () => {
                 className={cn(
                   "block px-3 py-2 rounded-md text-base font-medium",
                   location.pathname === link.path
-                    ? "text-school-green bg-green-50"
+                    ? "text-school-green bg-blue-50"
                     : "text-gray-600 hover:text-school-green hover:bg-gray-50"
                 )}
               >

@@ -82,7 +82,6 @@ export interface YearResults {
   subjects: { subject: string; rate: number }[];
 }
 
-// Generic CRUD helpers
 function getItems<T>(key: string): T[] {
   try {
     const data = localStorage.getItem(key);
@@ -117,24 +116,17 @@ export function generateId(): string {
 const defaultNews: NewsItem[] = [
   {
     id: '1',
-    title: "2026 Admissions Open",
-    date: "March 15, 2026",
-    content: "Applications for the 2026 academic year are now officially open. Please visit the Admissions portal.",
-    image: ""
+    title: '2026 Admissions',
+    date: 'March 2026',
+    content: 'Admissions enquiries can be directed to the school office. Application requirements will be published here as they are confirmed.',
+    image: ''
   },
   {
     id: '2',
-    title: "Term 1 Reports",
-    date: "March 20, 2026",
-    content: "Term 1 progress reports will be issued this Friday. Parents are encouraged to attend the briefing.",
-    image: ""
-  },
-  {
-    id: '3',
-    title: "Regional Athletics Results",
-    date: "March 10, 2026",
-    content: "Our athletics team secured 1st place in the regional championships! Congratulations to all athletes.",
-    image: ""
+    title: 'Matric Certificates',
+    date: 'January 2026',
+    content: 'NSC (Matric) certificates are available for collection at the school office. Please bring identification.',
+    image: ''
   }
 ];
 export const getNews = () => getItems<NewsItem>('admin_news').length ? getItems<NewsItem>('admin_news') : defaultNews;
@@ -150,9 +142,9 @@ export const setApplications = (items: Application[]) => setItems('admin_applica
 
 // Contact
 const defaultContact: ContactInfo = {
-  address: '[SCHOOL ADDRESS]',
-  phone: '[PHONE NUMBER]',
-  email: 'office@[school-domain].edu.za',
+  address: 'Sigoga Location, Mgubo A/A, Matatiele, 4730 (Eastern Cape)',
+  phone: '+27 76 707 3212',
+  email: 'office@mounthargreavesss.co.za',
   monThu: '07:30 - 15:30',
   friday: '07:30 - 13:30',
   weekend: 'Closed',
@@ -163,15 +155,15 @@ export const setContact = (info: ContactInfo) => setObject('admin_contact', info
 // About
 const defaultAbout: AboutInfo = {
   historyParagraphs: [
-    'Founded on the principles of excellence and community service, [SCHOOL NAME] has grown from a local initiative into a regional powerhouse of academic achievement. Our school has consistently served as a beacon of hope for thousands of learners.',
-    'Our journey began with a simple mission: to provide world-class education to our youth. Over the decades, we have expanded our facilities, refined our curriculum, and built a legacy that is reflected in our motto: "[SCHOOL MOTTO]."',
-    'Today, [SCHOOL NAME] is recognized as a leader in Grade 12 results, consistently producing top-tier candidates who go on to excel in universities across South Africa and beyond.',
+    'Mount Hargreaves Senior Secondary School is a public boarding school serving learners in and around Sigoga Location (Matatiele, Eastern Cape).',
+    'The school is committed to disciplined learning, community values, and strong academic outcomes.',
+    'Parents and guardians are encouraged to engage with the school through meetings, events, and ongoing learner support.'
   ],
-  principalName: '[PRINCIPAL NAME]',
-  principalTitle: 'School Principal',
+  principalName: 'Ms Ngozwana',
+  principalTitle: 'Principal',
   principalMessage: [
-    'Welcome to [SCHOOL NAME]. As the Principal, it is my honor to lead an institution that is so deeply committed to the success of its learners. Our vision is not just about academic results, but about producing holistic citizens who are ready to change the world.',
-    'We believe in the potential of every student. By providing a disciplined, nurturing, and intellectually stimulating environment, we ensure that our learners can truly achieve their dreams. Our consistent track record is a testament to the hard work of our dedicated staff and the resilience of our students.',
+    'Welcome to Mount Hargreaves Senior Secondary School. We believe every learner can achieve with consistent effort, good support, and a strong learning environment.',
+    'We value respect, responsibility, and pride in our school community. Together we can build a culture of achievement.'
   ],
 };
 export const getAbout = () => getObject<AboutInfo>('admin_about', defaultAbout);
@@ -179,13 +171,11 @@ export const setAbout = (info: AboutInfo) => setObject('admin_about', info);
 
 // Activities
 const defaultActivities: Activity[] = [
-  { id: '1', name: 'Soccer', category: 'Sport', description: 'The beautiful game — our teams compete passionately at district and regional tournaments.', image: '' },
-  { id: '2', name: 'Rugby', category: 'Sport', description: 'Our flagship sport with a rich history of regional dominance and provincial representation.', image: '' },
-  { id: '3', name: 'Netball', category: 'Sport', description: 'Competitive teams across all age groups with provincial accolades.', image: '' },
-  { id: '4', name: 'Athletics', category: 'Sport', description: 'Track and field excellence — developing speed, strength, and endurance across all events.', image: '' },
-  { id: '5', name: 'Spelling Bee', category: 'Academic', description: 'Sharpening language skills and vocabulary. National-level finalists multiple years running.', image: '' },
-  { id: '6', name: 'Debating', category: 'Academic', description: 'Developing critical thinkers and eloquent future leaders through competitive debate.', image: '' },
-  { id: '7', name: 'Choral Music', category: 'Culture', description: 'Award-winning choir known for excellence in regional and provincial competitions.', image: '' }
+  { id: '1', name: 'Soccer', category: 'Sport', description: 'Training and competition at school and district level.', image: '' },
+  { id: '2', name: 'Netball', category: 'Sport', description: 'Competitive teams across age groups.', image: '' },
+  { id: '3', name: 'Athletics', category: 'Sport', description: 'Track and field development and competition.', image: '' },
+  { id: '4', name: 'Debating', category: 'Academic', description: 'Building critical thinking and communication skills.', image: '' },
+  { id: '5', name: 'Choir', category: 'Culture', description: 'Music and performance for school events and competitions.', image: '' }
 ];
 export const getActivities = () => getItems<Activity>('admin_activities').length ? getItems<Activity>('admin_activities') : defaultActivities;
 export const setActivities = (items: Activity[]) => setItems('admin_activities', items);
@@ -196,18 +186,18 @@ export const setAchieversByYear = (year: string, items: AchieverEntry[]) => setI
 
 // Hall of Fame
 const defaultHall: HallOfFameEntry[] = [
-  { id: '1', name: '[ACHIEVER 1]', title: '7 Distinctions', year: '2025', desc: '', image: 'https://images.unsplash.com/photo-1523240695661-92135f3d325e?q=80&w=2000&auto=format&fit=crop' },
-  { id: '2', name: '[ACHIEVER 2]', title: '6 Distinctions', year: '2025', desc: '', image: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2000&auto=format&fit=crop' },
-  { id: '3', name: '[ACHIEVER 3]', title: 'Top in Math', year: '2025', desc: '', image: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=2000&auto=format&fit=crop' },
+  { id: '1', name: 'Top Achiever 1', title: 'Top Achiever', year: '2025', desc: '', image: '' },
+  { id: '2', name: 'Top Achiever 2', title: 'Top Achiever', year: '2025', desc: '', image: '' },
+  { id: '3', name: 'Top Achiever 3', title: 'Top Achiever', year: '2025', desc: '', image: '' },
 ];
 export const getHallOfFame = () => getItems<HallOfFameEntry>('admin_hall_of_fame').length ? getItems<HallOfFameEntry>('admin_hall_of_fame') : defaultHall;
 export const setHallOfFame = (items: HallOfFameEntry[]) => setItems('admin_hall_of_fame', items);
 
 // Results by year
 const defaultResults: Record<string, YearResults> = {
-  "2025": { overall: 89.9, bachelor: 206, bachelorRate: 71.8, distinctions: 451, wrote: 287, subjects: [{ subject: "Accounting", rate: 90.6 }, { subject: "Mathematics", rate: 71.1 }, { subject: "Physical Sciences", rate: 82.1 }] },
-  "2024": { overall: 85.4, bachelor: 195, bachelorRate: 68.2, distinctions: 398, wrote: 286, subjects: [{ subject: "Accounting", rate: 88.5 }, { subject: "IsiXhosa HL", rate: 99.1 }] },
-  "2023": { overall: 82.1, bachelor: 178, bachelorRate: 64.5, distinctions: 345, wrote: 276, subjects: [{ subject: "Life Orientation", rate: 100 }, { subject: "Geography", rate: 93.5 }] }
+  '2025': { overall: 89.9, bachelor: 206, bachelorRate: 71.8, distinctions: 451, wrote: 287, subjects: [{ subject: 'Accounting', rate: 90.6 }, { subject: 'Mathematics', rate: 71.1 }, { subject: 'Physical Sciences', rate: 82.1 }] },
+  '2024': { overall: 94.0, bachelor: 0, bachelorRate: 0, distinctions: 0, wrote: 0, subjects: [{ subject: 'English FAL', rate: 100 }, { subject: 'Life Orientation', rate: 100 }] },
+  '2023': { overall: 92.1, bachelor: 0, bachelorRate: 0, distinctions: 0, wrote: 0, subjects: [{ subject: 'Life Orientation', rate: 100 }, { subject: 'Geography', rate: 93.5 }] }
 };
 export const getResultsByYear = (year: string) => getObject<YearResults | null>(`admin_results_${year}`, defaultResults[year] || null);
 export const setResultsByYear = (year: string, data: YearResults) => setObject(`admin_results_${year}`, data);

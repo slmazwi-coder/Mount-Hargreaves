@@ -1,7 +1,19 @@
 import React from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { logout } from './utils/storage';
-import { Newspaper, Info, Trophy, FileText, Activity, Users, Phone, LogOut, LayoutDashboard, ShieldCheck } from 'lucide-react';
+import {
+  Newspaper,
+  Info,
+  Trophy,
+  FileText,
+  Activity,
+  Users,
+  Phone,
+  LogOut,
+  LayoutDashboard,
+  ShieldCheck,
+  ArrowLeft
+} from 'lucide-react';
 
 const adminTabs = [
   { path: '/admin', label: 'Dashboard', icon: LayoutDashboard },
@@ -23,26 +35,38 @@ export const AdminLayout = () => {
     navigate('/admin/login');
   };
 
+  const goBackToSite = () => {
+    navigate('/');
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      {/* Top Banner */}
       <div className="bg-red-600 text-white text-center py-1 text-xs font-bold uppercase tracking-widest">
         ⚙ Admin Mode — Changes affect the live website
       </div>
 
-      {/* Admin Navbar */}
       <nav className="bg-gray-800 border-b border-gray-700 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-14">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
+              <button
+                onClick={goBackToSite}
+                className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors"
+                aria-label="Back to website"
+              >
+                <ArrowLeft size={16} /> Back
+              </button>
+
               <Link to="/admin" className="text-lg font-bold text-white flex items-center gap-2">
-                <span className="text-school-green">NHS</span> Staff Portal
+                <span className="text-school-green">MHSS</span> Staff Portal
               </Link>
+
               <div className="hidden lg:flex items-center gap-1.5 px-2 py-1 bg-green-500/10 border border-green-500/20 rounded-full text-[10px] font-bold text-green-400 uppercase tracking-tighter">
                 <ShieldCheck size={12} />
                 Anti-Malicious Defense Active
               </div>
             </div>
+
             <div className="hidden md:flex items-center gap-1">
               {adminTabs.map((tab) => {
                 const Icon = tab.icon;
@@ -63,6 +87,7 @@ export const AdminLayout = () => {
                 );
               })}
             </div>
+
             <button
               onClick={handleLogout}
               className="flex items-center gap-2 text-sm text-gray-400 hover:text-red-400 transition-colors"
@@ -71,7 +96,7 @@ export const AdminLayout = () => {
             </button>
           </div>
         </div>
-        {/* Mobile tabs */}
+
         <div className="md:hidden overflow-x-auto px-2 pb-2 flex gap-1">
           {adminTabs.map((tab) => {
             const Icon = tab.icon;
@@ -94,7 +119,6 @@ export const AdminLayout = () => {
         </div>
       </nav>
 
-      {/* Content */}
       <main className="max-w-7xl mx-auto px-4 py-8">
         <Outlet />
       </main>
