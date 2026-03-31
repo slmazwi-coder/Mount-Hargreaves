@@ -10,6 +10,7 @@ import { Documents } from './pages/Documents';
 import { Achievements } from './pages/Achievements';
 import { ExtraCurricular } from './pages/ExtraCurricular';
 import { Admissions } from './pages/Admissions';
+import { Boarding } from './pages/Boarding';
 import { Contact } from './pages/Contact';
 
 // Admin imports
@@ -44,6 +45,7 @@ export default function App() {
         <Route path="/achievements" element={<><Navbar /><main className="flex-grow"><Achievements /></main><Footer /></>} />
         <Route path="/extra-curricular" element={<><Navbar /><main className="flex-grow"><ExtraCurricular /></main><Footer /></>} />
         <Route path="/admissions" element={<><Navbar /><main className="flex-grow"><Admissions /></main><Footer /></>} />
+        <Route path="/boarding" element={<><Navbar /><main className="flex-grow"><Boarding /></main><Footer /></>} />
         <Route path="/contact" element={<><Navbar /><main className="flex-grow"><Contact /></main><Footer /></>} />
 
         {/* Admin routes */}
