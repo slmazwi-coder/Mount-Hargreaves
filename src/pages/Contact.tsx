@@ -11,12 +11,12 @@ export const Contact = () => {
   }, []);
 
   return (
-    <div className="py-16 bg-white">
+    <div className="py-12 sm:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="section-title">Contact Us</h1>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+          <motion.div initial= opacity: 0, y: 24  animate= opacity: 1, y: 0 >
             <h2 className="text-2xl font-bold text-school-green mb-8">Get in Touch</h2>
             <div className="space-y-8">
               <div className="flex items-start gap-4">
@@ -43,7 +43,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900">Email</h3>
-                  <p className="text-gray-600">{info.email}</p>
+                  <p className="text-gray-600 break-words">{info.email}</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -58,7 +58,7 @@ export const Contact = () => {
               </div>
             </div>
 
-            <div className="mt-12 rounded-3xl overflow-hidden h-[320px] border-4 border-gray-100 shadow-inner bg-gray-50 relative">
+            <div className="mt-10 sm:mt-12 rounded-3xl overflow-hidden h-[260px] sm:h-[320px] border-4 border-gray-100 shadow-inner bg-gray-50 relative">
               <iframe
                 title="Mount Hargreaves SSS Location"
                 src="https://www.google.com/maps?q=-30.40676,28.70707&z=15&output=embed"
@@ -69,9 +69,9 @@ export const Contact = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-gray-50 p-10 rounded-3xl border border-gray-100 shadow-sm"
+            initial= opacity: 0, y: 24 
+            animate= opacity: 1, y: 0 
+            className="bg-gray-50 p-6 sm:p-8 md:p-10 rounded-3xl border border-gray-100 shadow-sm"
           >
             <h2 className="text-2xl font-bold text-school-green mb-8">Send us a Message</h2>
             <form className="space-y-6">
