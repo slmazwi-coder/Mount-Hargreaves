@@ -1,0 +1,7 @@
+{
+  "name": "[SCHOOL NAME]",
+  "description": "[SCHOOL_DESCRIPTION]",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
