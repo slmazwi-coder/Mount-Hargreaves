@@ -13,7 +13,11 @@ export const Admissions = () => {
   if (submitted) {
     return (
       <div className="py-20 flex items-center justify-center min-h-[60vh]">
-        <motion.div initial= scale: 0.9, opacity: 0  animate= scale: 1, opacity: 1  className="text-center p-12 bg-white rounded-3xl shadow-2xl max-w-md">
+        <motion.div
+          initial= scale: 0.9, opacity: 0 
+          animate= scale: 1, opacity: 1 
+          className="text-center p-12 bg-white rounded-3xl shadow-2xl max-w-md"
+        >
           <div className="w-20 h-20 bg-green-100 text-school-green rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle size={48} />
           </div>
@@ -78,7 +82,7 @@ export const Admissions = () => {
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-bold text-gray-700">Parent Phone Number</label>
-                <input required type="tel" className="w-full p-3 rounded-xl border border-gray-200 focus:ring--2 focus:ring-school-green/20 outline-none" placeholder="012 345 6789" />
+                <input required type="tel" className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none" placeholder="012 345 6789" />
               </div>
             </div>
 

@@ -13,14 +13,16 @@ export const Boarding = () => {
   if (submitted) {
     return (
       <div className="py-20 flex items-center justify-center min-h-[60vh]">
-        <motion.div initial= scale: 0.9, opacity: 0  animate= scale: 1, opacity: 1  className="text-center p-12 bg-white rounded-3xl shadow-2xl max-w-md">
+        <motion.div
+          initial= scale: 0.9, opacity: 0 
+          animate= scale: 1, opacity: 1 
+          className="text-center p-12 bg-white rounded-3xl shadow-2xl max-w-md"
+        >
           <div className="w-20 h-20 bg-blue-100 text-school-green rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle size={48} />
           </div>
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Boarding Application Submitted</h2>
-          <p className="text-gray-600 mb-8">
-            Thank you. Your boarding accommodation application has been received.
-          </p>
+          <p className="text-gray-600 mb-8">Thank you. Your boarding accommodation application has been received.</p>
           <a href="/" className="btn-primary w-full inline-block">Back to Home</a>
         </motion.div>
       </div>
