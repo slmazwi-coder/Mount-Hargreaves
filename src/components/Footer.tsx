@@ -8,7 +8,16 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
-            <h3 className="text-2xl font-bold mb-6">Mount Hargreaves SSS</h3>
+            <div className="flex items-center gap-3 mb-5">
+              <div className="h-12 w-12 rounded-xl bg-white/95 overflow-hidden border border-white/20 shadow-lg">
+                <img
+                  src="/assets/images.jpeg"
+                  alt="Mount Hargreaves SSS logo"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <h3 className="text-2xl font-bold">Mount Hargreaves SSS</h3>
+            </div>
             <p className="text-white/80 mb-6 italic">"Strive for excellence"</p>
             <div className="flex gap-4">
               <a
@@ -54,7 +63,10 @@ export const Footer = () => {
                 <a href="/achievements" className="hover:text-white transition-colors">Achievements</a>
               </li>
               <li>
-                <a href="/admissions" className="hover:text-white transition-colors">Admissions</a>
+                <a href="/admissions" className="hover:text-white transition-colors">General Application</a>
+              </li>
+              <li>
+                <a href="/boarding" className="hover:text-white transition-colors">Boarding Application</a>
               </li>
             </ul>
           </div>
