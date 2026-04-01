@@ -35,7 +35,7 @@ export const Footer = () => {
               </div>
               <h3 className="text-2xl font-bold">Mount Hargreaves SSS</h3>
             </div>
-            <p className="text-white/80 mb-6 italic">"Strive for excellence"</p>
+            <p className="text-white/80 mb-6 italic">"we can"</p>
             <div className="flex gap-4">
               <a
                 href="https://www.facebook.com/MT.Hargreaves/"
