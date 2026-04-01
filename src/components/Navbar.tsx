@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, User } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 const navLinks = [
@@ -51,6 +51,18 @@ export const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+
+            <Link
+              to="/student/login"
+              className={cn(
+                'px-3 py-2 rounded-md text-sm font-bold transition-colors inline-flex items-center gap-2',
+                location.pathname.startsWith('/student')
+                  ? 'text-white bg-school-green'
+                  : 'text-school-green bg-green-50 hover:bg-green-100'
+              )}
+            >
+              <User size={16} /> Student Portal
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -85,6 +97,19 @@ export const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+
+            <Link
+              to="/student/login"
+              onClick={() => setIsOpen(false)}
+              className={cn(
+                'block px-3 py-2 rounded-md text-base font-bold',
+                location.pathname.startsWith('/student')
+                  ? 'text-white bg-school-green'
+                  : 'text-school-green bg-green-50'
+              )}
+            >
+              Student Portal
+            </Link>
           </div>
         </div>
       )}
