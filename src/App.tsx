@@ -8,7 +8,8 @@ import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Documents } from './pages/Documents';
 import { Achievements } from './pages/Achievements';
-import { ExtraCurricular } from './pages/ExtraCurricular';
+import { Sport } from './pages/Sport';
+import { Activities } from './pages/Activities';
 import { Admissions } from './pages/Admissions';
 import { Boarding } from './pages/Boarding';
 import { Contact } from './pages/Contact';
@@ -34,19 +35,28 @@ const HomePage = () => (
   </>
 );
 
+const PageShell = ({ children }: { children: React.ReactNode }) => (
+  <>
+    <Navbar />
+    <main className="flex-grow">{children}</main>
+    <Footer />
+  </>
+);
+
 export default function App() {
   return (
     <Router>
       <Routes>
         {/* Public routes */}
-        <Route path="/" element={<><Navbar /><main className="flex-grow"><HomePage /></main><Footer /></>} />
-        <Route path="/about" element={<><Navbar /><main className="flex-grow"><About /></main><Footer /></>} />
-        <Route path="/documents" element={<><Navbar /><main className="flex-grow"><Documents /></main><Footer /></>} />
-        <Route path="/achievements" element={<><Navbar /><main className="flex-grow"><Achievements /></main><Footer /></>} />
-        <Route path="/extra-curricular" element={<><Navbar /><main className="flex-grow"><ExtraCurricular /></main><Footer /></>} />
-        <Route path="/admissions" element={<><Navbar /><main className="flex-grow"><Admissions /></main><Footer /></>} />
-        <Route path="/boarding" element={<><Navbar /><main className="flex-grow"><Boarding /></main><Footer /></>} />
-        <Route path="/contact" element={<><Navbar /><main className="flex-grow"><Contact /></main><Footer /></>} />
+        <Route path="/" element={<PageShell><HomePage /></PageShell>} />
+        <Route path="/about" element={<PageShell><About /></PageShell>} />
+        <Route path="/documents" element={<PageShell><Documents /></PageShell>} />
+        <Route path="/achievements" element={<PageShell><Achievements /></PageShell>} />
+        <Route path="/sport" element={<PageShell><Sport /></PageShell>} />
+        <Route path="/activities" element={<PageShell><Activities /></PageShell>} />
+        <Route path="/admissions" element={<PageShell><Admissions /></PageShell>} />
+        <Route path="/boarding" element={<PageShell><Boarding /></PageShell>} />
+        <Route path="/contact" element={<PageShell><Contact /></PageShell>} />
 
         {/* Admin routes */}
         <Route path="/admin/login" element={<AdminLogin />} />

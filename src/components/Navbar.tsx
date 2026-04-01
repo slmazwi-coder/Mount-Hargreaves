@@ -8,7 +8,8 @@ const navLinks = [
   { name: 'About', path: '/about' },
   { name: 'Documents', path: '/documents' },
   { name: 'Achievements', path: '/achievements' },
-  { name: 'Extra-Curricular', path: '/extra-curricular' },
+  { name: 'Sport', path: '/sport' },
+  { name: 'Activities', path: '/activities' },
   { name: 'General Application', path: '/admissions' },
   { name: 'Boarding Application', path: '/boarding' },
   { name: 'Contact', path: '/contact' },
@@ -25,11 +26,7 @@ export const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-3">
               <div className="h-12 w-12 rounded-xl bg-white flex items-center justify-center border border-gray-200 shadow-lg overflow-hidden">
-                <img
-                  src="/assets/images.jpeg"
-                  alt="Mount Hargreaves SSS logo"
-                  className="h-full w-full object-cover"
-                />
+                <img src="/assets/images.jpeg" alt="Mount Hargreaves SSS logo" className="h-full w-full object-cover" />
               </div>
               <div className="hidden md:block">
                 <span className="text-xl font-bold text-school-green block leading-none">Mount Hargreaves SSS</span>
@@ -45,10 +42,10 @@ export const Navbar = () => {
                 key={link.path}
                 to={link.path}
                 className={cn(
-                  "px-3 py-2 rounded-md text-sm font-medium transition-colors",
+                  'px-3 py-2 rounded-md text-sm font-medium transition-colors',
                   location.pathname === link.path
-                    ? "text-school-green bg-blue-50"
-                    : "text-gray-600 hover:text-school-green hover:bg-gray-50"
+                    ? 'text-school-green bg-blue-50'
+                    : 'text-gray-600 hover:text-school-green hover:bg-gray-50'
                 )}
               >
                 {link.name}
@@ -79,10 +76,10 @@ export const Navbar = () => {
                 to={link.path}
                 onClick={() => setIsOpen(false)}
                 className={cn(
-                  "block px-3 py-2 rounded-md text-base font-medium",
+                  'block px-3 py-2 rounded-md text-base font-medium',
                   location.pathname === link.path
-                    ? "text-school-green bg-blue-50"
-                    : "text-gray-600 hover:text-school-green hover:bg-gray-50"
+                    ? 'text-school-green bg-blue-50'
+                    : 'text-gray-600 hover:text-school-green hover:bg-gray-50'
                 )}
               >
                 {link.name}
