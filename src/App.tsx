@@ -14,6 +14,8 @@ import { Activities } from './pages/Activities';
 import { Admissions } from './pages/Admissions';
 import { Boarding } from './pages/Boarding';
 import { Contact } from './pages/Contact';
+import { StudentLogin } from './pages/StudentLogin';
+import { StudentPortal } from './pages/StudentPortal';
 
 // Admin imports
 import { AdminLogin } from './admin/AdminLogin';
@@ -27,6 +29,7 @@ import { DocumentsEditor } from './admin/editors/DocumentsEditor';
 import { ExtraCurricularEditor } from './admin/editors/ExtraCurricularEditor';
 import { ApplicationsEditor } from './admin/editors/ApplicationsEditor';
 import { ContactEditor } from './admin/editors/ContactEditor';
+import { StudentDocsEditor } from './admin/editors/StudentDocsEditor';
 
 const HomePage = () => (
   <>
@@ -59,6 +62,10 @@ export default function App() {
         <Route path="/boarding" element={<PageShell><Boarding /></PageShell>} />
         <Route path="/contact" element={<PageShell><Contact /></PageShell>} />
 
+        {/* Student portal routes */}
+        <Route path="/student/login" element={<StudentLogin />} />
+        <Route path="/student" element={<StudentPortal />} />
+
         {/* Admin routes */}
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin" element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
@@ -69,6 +76,7 @@ export default function App() {
           <Route path="documents" element={<DocumentsEditor />} />
           <Route path="extra-curricular" element={<ExtraCurricularEditor />} />
           <Route path="applications" element={<ApplicationsEditor />} />
+          <Route path="student-documents" element={<StudentDocsEditor />} />
           <Route path="contact" element={<ContactEditor />} />
         </Route>
       </Routes>

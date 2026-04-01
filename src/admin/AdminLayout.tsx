@@ -13,6 +13,7 @@ import {
   LayoutDashboard,
   ShieldCheck,
   ArrowLeft,
+  FolderUp,
 } from 'lucide-react';
 
 const adminTabs = [
@@ -24,6 +25,7 @@ const adminTabs = [
   // Still uses the same editor under the hood, but wording matches the public website.
   { path: '/admin/extra-curricular', label: 'Sport & Activities', icon: Activity },
   { path: '/admin/applications', label: 'Applications', icon: Users },
+  { path: '/admin/student-documents', label: 'Student Docs', icon: FolderUp },
   { path: '/admin/contact', label: 'Contact', icon: Phone },
 ];
 
