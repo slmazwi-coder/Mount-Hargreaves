@@ -12,7 +12,7 @@ import {
   LogOut,
   LayoutDashboard,
   ShieldCheck,
-  ArrowLeft
+  ArrowLeft,
 } from 'lucide-react';
 
 const adminTabs = [
@@ -21,7 +21,8 @@ const adminTabs = [
   { path: '/admin/about', label: 'About', icon: Info },
   { path: '/admin/achievements', label: 'Achievements', icon: Trophy },
   { path: '/admin/documents', label: 'Documents', icon: FileText },
-  { path: '/admin/extra-curricular', label: 'Extra-Curricular', icon: Activity },
+  // Still uses the same editor under the hood, but wording matches the public website.
+  { path: '/admin/extra-curricular', label: 'Sport & Activities', icon: Activity },
   { path: '/admin/applications', label: 'Applications', icon: Users },
   { path: '/admin/contact', label: 'Contact', icon: Phone },
 ];
@@ -106,9 +107,7 @@ export const AdminLayout = () => {
                 key={tab.path}
                 to={tab.path}
                 className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs whitespace-nowrap font-medium ${
-                  isActive
-                    ? 'bg-school-green text-white'
-                    : 'text-gray-400 bg-gray-700'
+                  isActive ? 'bg-school-green text-white' : 'text-gray-400 bg-gray-700'
                 }`}
               >
                 <Icon size={14} />
