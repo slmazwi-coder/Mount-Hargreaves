@@ -75,18 +75,18 @@ export const Achievements = () => {
             </div>
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-10">
               <div className="w-32 h-32 sm:w-40 sm:h-40 bg-blue-200 rounded-full flex flex-col items-center justify-center text-school-green border-8 border-white shadow-lg shrink-0">
-                <span className="text-3xl sm:text-4xl font-black">94.0%</span>
+                <span className="text-3xl sm:text-4xl font-black">94.5%</span>
                 <span className="text-sm font-bold uppercase tracking-tighter italic">Pass Rate</span>
               </div>
               <div>
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 text-school-green font-bold uppercase tracking-widest text-sm mb-2">
-                  <Star size={16} fill="currentColor" /> 2024 Matric Highlight <Star size={16} fill="currentColor" />
+                  <Star size={16} fill="currentColor" /> 2025 Matric Highlight <Star size={16} fill="currentColor" />
                 </div>
                 <h2 className="text-3xl md:text-5xl font-black text-school-green mb-4 text-center md:text-left">
                   Celebrating strong results
                 </h2>
                 <p className="text-base sm:text-lg text-gray-700 max-w-2xl italic leading-relaxed text-center md:text-left">
-                  "Mount Hargreaves SSS has celebrated strong matric performance in recent years. The school community continues to focus on steady improvement and learner support."
+                  "Mount Hargreaves SSS continues to focus on steady improvement, learner support, and high academic standards."
                 </p>
               </div>
             </div>
@@ -108,7 +108,7 @@ export const Achievements = () => {
             {hallOfFame.slice(0, 8).map((student, idx) => (
               <motion.div
                 key={student.id || idx}
-                whileHover={{ scale: 1.02 }}
+                whileHover= scale: 1.02 
                 className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100"
               >
                 <StudentAvatar image={student.image} name={student.name} year={student.year} />
@@ -147,10 +147,10 @@ export const Achievements = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeResultsYear}
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -14 }}
-              transition={{ duration: 0.25 }}
+              initial= opacity: 0, y: 14 
+              animate= opacity: 1, y: 0 
+              exit= opacity: 0, y: -14 
+              transition= duration: 0.25 
             >
               {!currentResults ? (
                 <div className="text-center py-16 sm:py-24 text-gray-400 bg-gray-50 rounded-3xl border border-dashed border-gray-200">
@@ -174,7 +174,9 @@ export const Achievements = () => {
                         </div>
                         <div className="bg-white/10 p-5 sm:p-6 rounded-2xl backdrop-blur-sm border border-white/10 text-center md:text-left">
                           <p className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">{currentResults.bachelor}</p>
-                          <p className="text-white/80 text-sm font-medium">Bachelor Passes ({currentResults.bachelorRate}%)</p>
+                          <p className="text-white/80 text-sm font-medium">
+                            Bachelor Passes ({currentResults.bachelorRate}%)
+                          </p>
                         </div>
                         <div className="bg-white/10 p-5 sm:p-6 rounded-2xl backdrop-blur-sm border border-white/10 text-center md:text-left">
                           <p className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">{currentResults.distinctions}</p>
@@ -199,9 +201,9 @@ export const Achievements = () => {
                           </div>
                           <div className="w-full bg-gray-100 rounded-full h-2">
                             <motion.div
-                              initial={{ width: 0 }}
+                              initial= width: 0 
                               animate={{ width: `${stat.rate}%` }}
-                              transition={{ duration: 0.45 }}
+                              transition= duration: 0.45 
                               className="bg-school-green h-2 rounded-full"
                             />
                           </div>
@@ -242,10 +244,10 @@ export const Achievements = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeAchieversYear}
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -14 }}
-              transition={{ duration: 0.25 }}
+              initial= opacity: 0, y: 14 
+              animate= opacity: 1, y: 0 
+              exit= opacity: 0, y: -14 
+              transition= duration: 0.25 
               className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8"
             >
               {achieversByYear[activeAchieversYear] && achieversByYear[activeAchieversYear].length > 0 ? (

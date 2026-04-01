@@ -179,17 +179,10 @@ export function calculateAverageMark(subjectMarks: SubjectMark[]): number {
 const defaultNews: NewsItem[] = [
   {
     id: '1',
-    title: '2026 Admissions',
-    date: 'March 2026',
+    title: '2027 Applications Open',
+    date: 'Now open',
     content:
-      'Admissions enquiries can be directed to the school office. Application requirements will be published here as they are confirmed.',
-    image: '',
-  },
-  {
-    id: '2',
-    title: 'Matric Certificates',
-    date: 'January 2026',
-    content: 'NSC (Matric) certificates are available for collection at the school office. Please bring identification.',
+      'Applications for admissions and boarding for the 2027 academic year are now open. Please submit your application using the online forms.',
     image: '',
   },
 ];
@@ -261,7 +254,7 @@ export const setHallOfFame = (items: HallOfFameEntry[]) => setItems('admin_hall_
 // Results by year
 const defaultResults: Record<string, YearResults> = {
   '2025': {
-    overall: 89.9,
+    overall: 94.5,
     bachelor: 206,
     bachelorRate: 71.8,
     distinctions: 451,
@@ -302,7 +295,7 @@ export const setResultsByYear = (year: string, data: YearResults) => setObject(`
 // Auth
 export const isAuthenticated = () => localStorage.getItem('admin_auth') === 'true';
 export const login = (password: string): boolean => {
-  if (password === 'admin2025') {
+  if (password === 'admin2026') {
     localStorage.setItem('admin_auth', 'true');
     return true;
   }

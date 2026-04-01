@@ -2,30 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Bell, Calendar, Info } from 'lucide-react';
 import { getNews, type NewsItem } from '../admin/utils/storage';
 
-const notices = [
-  {
-    id: 1,
-    title: "2026 Admissions Open",
-    date: "March 15, 2026",
-    type: "Admission",
-    content: "Applications for the 2026 academic year are now officially open. Please visit the Admissions portal."
-  },
-  {
-    id: 2,
-    title: "Term 1 Reports",
-    date: "March 20, 2026",
-    type: "Academic",
-    content: "Term 1 progress reports will be issued this Friday. Parents are encouraged to attend the briefing."
-  },
-  {
-    id: 3,
-    title: "Regional Athletics Results",
-    date: "March 10, 2026",
-    type: "Sports",
-    content: "Our athletics team secured 1st place in the regional championships! Congratulations to all athletes."
-  }
-];
-
 export const NewsSection = () => {
   const [notices, setNotices] = useState<NewsItem[]>(getNews());
 
