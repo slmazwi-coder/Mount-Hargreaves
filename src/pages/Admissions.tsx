@@ -83,9 +83,7 @@ export const Admissions = () => {
   const [files, setFiles] = useState<Record<string, File | null>>({});
 
   const missingRequiredUploads = useMemo(() => {
-    return uploadFields
-      .filter((f) => f.required)
-      .filter((f) => !files[f.key]);
+    return uploadFields.filter((f) => f.required).filter((f) => !files[f.key]);
   }, [files]);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -163,9 +161,9 @@ export const Admissions = () => {
     return (
       <div className="py-20 flex items-center justify-center min-h-[60vh]">
         <motion.div
-          initial= opacity: 0, y: 24, scale: 0.98 
-          animate= opacity: 1, y: 0, scale: 1 
-          transition= duration: 0.25 
+          initial={{ opacity: 0, y: 24, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.25 }}
           className="text-center p-10 sm:p-12 bg-white rounded-3xl shadow-2xl max-w-md"
         >
           <div className="w-20 h-20 bg-green-100 text-school-green rounded-full flex items-center justify-center mx-auto mb-6">
@@ -429,54 +427,28 @@ export const Admissions = () => {
             {/* Uploads */}
             <section className="space-y-4">
               <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2">
-                <Upload size={20} className="text-school-green" /> Required Documents
+                <Upload size={20} className="text-school-green" /> Required Documents (PDF)
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {uploadFields.map((doc) => (
-                  <label
-                    key={doc.key}
-                    className={`border-2 border-dashed rounded-2xl p-5 text-left hover:border-school-green transition-colors cursor-pointer bg-white ${
-                      doc.required && !files[doc.key] ? 'border-gray-200' : 'border-gray-200'
-                    }`}
+                {[
+                  { title: 'Learner Birth Certificate / ID', icon: FileText },
+                  { title: 'Latest Report Card', icon: FileText },
+                  { title: 'Parent/Guardian ID Copy', icon: FileText },
+                  { title: 'Proof of Residence', icon: FileText },
+                  { title: 'Transfer Letter (if transferring)', icon: FileText },
+                  { title: 'Immunisation Card (if available)', icon: FileText },
+                ].map((doc) => (
+                  <div
+                    key={doc.title}
+                    className="border-2 border-dashed border-gray-200 rounded-2xl p-6 text-center hover:border-school-green transition-colors cursor-pointer"
                   >
-                    <div className="flex items-start gap-3">
-                      <div className="p-3 rounded-xl bg-gray-50 border border-gray-100 text-school-green shrink-0">
-                        {doc.key === 'residence' ? <Home size={20} /> : <FileText size={20} />}
-                      </div>
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-2">
-                          <p className="text-sm font-bold text-gray-900 truncate">{doc.label}</p>
-                          {doc.required ? (
-                            <span className="text-[10px] font-black uppercase tracking-widest text-red-600">Required</span>
-                          ) : (
-                            <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">Optional</span>
-                          )}
-                        </div>
-                        <p className="text-xs text-gray-500 mt-1">PDF recommended</p>
-                        <p className="text-xs text-gray-700 mt-2 font-medium">
-                          {files[doc.key] ? `Selected: ${files[doc.key]!.name}` : 'Click to choose a file'}
-                        </p>
-                      </div>
-                    </div>
-                    <input
-                      type="file"
-                      accept="application/pdf,image/*"
-                      className="hidden"
-                      onChange={(e) => {
-                        const file = e.target.files?.[0] || null;
-                        setFiles((prev) => ({ ...prev, [doc.key]: file }));
-                      }}
-                    />
-                  </label>
+                    <doc.icon className="mx-auto text-gray-400 mb-2" />
+                    <p className="text-sm font-medium">{doc.title}</p>
+                    <p className="text-xs text-gray-400">Click to upload PDF</p>
+                  </div>
                 ))}
               </div>
-
-              {missingRequiredUploads.length > 0 ? (
-                <div className="text-xs text-red-600 font-semibold">
-                  Missing required uploads: {missingRequiredUploads.map((m) => m.label).join(', ')}
-                </div>
-              ) : null}
             </section>
 
             <div className="bg-yellow-50 p-4 rounded-xl flex gap-3 items-start">
