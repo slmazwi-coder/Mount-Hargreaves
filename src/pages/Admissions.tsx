@@ -15,7 +15,6 @@ import {
   Shield,
 } from 'lucide-react';
 import {
-  calculateAverageMark,
   generateId,
   generateStudentNumber,
   getApplications,
@@ -210,7 +209,6 @@ export const Admissions = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-10">
-            {/* Learner details */}
             <section>
               <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2 mb-4">
                 <User size={20} className="text-school-green" /> Learner Details
@@ -297,10 +295,86 @@ export const Admissions = () => {
               </div>
             </section>
 
-            {/* Upload UI continues below unchanged */}
-            {/* (rest of file omitted here for brevity in this commit content, but should remain identical) */}
+            <section className="space-y-4">
+              <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2">
+                <Upload size={20} className="text-school-green" /> Required Documents
+              </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {uploadFields.map((doc) => (
+                  <div key={doc.key} className="border-2 border-dashed border-gray-200 rounded-2xl p-5 text-left bg-white">
+                    <div className="flex items-start gap-3">
+                      <div className="p-3 rounded-xl bg-gray-50 border border-gray-100 text-school-green shrink-0">
+                        {doc.key === 'residence' ? <Home size={20} /> : <FileText size={20} />}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-2">
+                          <p className="text-sm font-bold text-gray-900 truncate">{doc.label}</p>
+                          {doc.required ? (
+                            <span className="text-[10px] font-black uppercase tracking-widest text-red-600">Required</span>
+                          ) : (
+                            <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">Optional</span>
+                          )}
+                        </div>
+                        <p className="text-xs text-gray-500 mt-1">PDF recommended</p>
+                        <p className="text-xs text-gray-700 mt-2 font-medium">
+                          {files[doc.key] ? `Selected: ${files[doc.key]!.name}` : 'No file selected'}
+                        </p>
+
+                        <label className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-school-green cursor-pointer">
+                          <Upload size={16} /> Choose file
+                          <input
+                            type="file"
+                            accept="application/pdf,image/*"
+                            className="hidden"
+                            onChange={(e) => {
+                              const file = e.target.files?.[0] || null;
+                              setFiles((prev) => ({ ...prev, [doc.key]: file }));
+                            }}
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {missingRequiredUploads.length > 0 ? (
+                <div className="text-xs text-red-600 font-semibold">
+                  Missing required uploads: {missingRequiredUploads.map((m) => m.label).join(', ')}
+                </div>
+              ) : null}
+            </section>
+
+            <div className="bg-yellow-50 p-4 rounded-xl flex gap-3 items-start">
+              <AlertCircle className="text-yellow-600 shrink-0" size={20} />
+              <p className="text-sm text-yellow-800">
+                By submitting this form, you confirm that the information provided is true and correct. Incomplete
+                applications may not be processed.
+              </p>
+            </div>
+
+            {error ? (
+              <div className="bg-red-50 p-4 rounded-xl flex gap-3 items-start">
+                <Shield className="text-red-600 shrink-0" size={20} />
+                <p className="text-sm text-red-800">{error}</p>
+              </div>
+            ) : null}
+
+            <button
+              type="submit"
+              disabled={submitting}
+              className="btn-primary w-full py-4 text-lg shadow-lg shadow-blue-900/20 disabled:opacity-60"
+            >
+              {submitting ? 'Submitting...' : 'Submit General Application'}
+            </button>
           </form>
         </div>
+
+        <p className="text-xs text-gray-500 mt-4">
+          Note: Applications and uploads are saved in the school browser storage for this demo. For a real deployment,
+          connect the staff portal to a database so staff can access submissions from any device.
+        </p>
       </div>
     </div>
   );
