@@ -8,9 +8,9 @@ export const About = () => {
   const [campusFailed, setCampusFailed] = useState(false);
   const [principalFailed, setPrincipalFailed] = useState(false);
 
-  // Put your images in:
+  // Images live in:
   // public/assets/about/
-  const campusImageUrl = '/assets/about/campus.jpg';
+  const campusImageUrl = '/assets/about/d8d53f724e0b195658e83c643a6b491e.png';
   const principalImageUrl = '/assets/about/principal.jpg';
 
   useEffect(() => {
@@ -23,12 +23,7 @@ export const About = () => {
         <h1 className="section-title">About Mount Hargreaves SSS</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16 sm:mb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial= opacity: 0, y: 24  whileInView= opacity: 1, y: 0  transition= duration: 0.35  viewport= once: true >
             <h2 className="text-2xl font-bold text-school-green mb-6">Our School</h2>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               {data.historyParagraphs.map((p, i) => (
@@ -38,10 +33,10 @@ export const About = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, delay: 0.05 }}
-            viewport={{ once: true }}
+            initial= opacity: 0, y: 24 
+            whileInView= opacity: 1, y: 0 
+            transition= duration: 0.35, delay: 0.05 
+            viewport= once: true 
             className="rounded-2xl overflow-hidden shadow-2xl"
           >
             {!campusFailed ? (
@@ -58,7 +53,7 @@ export const About = () => {
                     <ImageIcon />
                   </div>
                   <div className="font-semibold">Campus image placeholder</div>
-                  <div className="text-sm text-white/60">Add <span className="font-mono">public/assets/about/campus.jpg</span></div>
+                  <div className="text-sm text-white/60">Add images to <span className="font-mono">public/assets/about/</span></div>
                 </div>
               </div>
             )}
