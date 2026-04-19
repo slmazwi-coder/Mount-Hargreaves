@@ -28,12 +28,12 @@ export const Footer = () => {
             <div className="flex items-center gap-3 mb-5">
               <div className="h-12 w-12 rounded-xl bg-white/95 overflow-hidden border border-white/20 shadow-lg">
                 <img
-                  src="/assets/images.jpeg"
-                  alt="Mount Hargreaves SSS logo"
+                  src="/assets/Copilot_20260418_114207.png"
+                  alt="My Hargreaves SSS logo"
                   className="h-full w-full object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-bold">Mount Hargreaves SSS</h3>
+              <h3 className="text-2xl font-bold">My Hargreaves SSS</h3>
             </div>
             <p className="text-white/80 mb-6 italic">"we can"</p>
             <div className="flex gap-4">
@@ -117,7 +117,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-white/10 pt-8 text-center text-white/70 text-sm">
-          <p>© {new Date().getFullYear()} Mount Hargreaves Senior Secondary School. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} My Hargreaves Senior Secondary School. All Rights Reserved.</p>
           <Link
             to="/admin/login"
             className="text-white/40 hover:text-white/70 text-xs mt-2 inline-block transition-colors"
