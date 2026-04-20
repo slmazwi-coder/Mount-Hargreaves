@@ -387,15 +387,9 @@ export const Admissions = () => {
         siblingInfo: {
           numberOfOtherChildrenAtSchool: siblings.numberOfOtherChildrenAtSchool,
           siblings: [
-            siblings.sibling1Name
-              ? { name: siblings.sibling1Name, grade: siblings.sibling1Grade, positionInFamily: siblings.positionInFamily }
-              : null,
-            siblings.sibling2Name
-              ? { name: siblings.sibling2Name, grade: siblings.sibling2Grade, positionInFamily: siblings.positionInFamily }
-              : null,
-            siblings.sibling3Name
-              ? { name: siblings.sibling3Name, grade: siblings.sibling3Grade, positionInFamily: siblings.positionInFamily }
-              : null,
+            siblings.sibling1Name ? { name: siblings.sibling1Name, grade: siblings.sibling1Grade, positionInFamily: siblings.positionInFamily } : null,
+            siblings.sibling2Name ? { name: siblings.sibling2Name, grade: siblings.sibling2Grade, positionInFamily: siblings.positionInFamily } : null,
+            siblings.sibling3Name ? { name: siblings.sibling3Name, grade: siblings.sibling3Grade, positionInFamily: siblings.positionInFamily } : null,
           ].filter(Boolean) as any,
         },
         parentGuardian1: parent1 as any,
@@ -976,4 +970,378 @@ export const Admissions = () => {
                         value={siblings.numberOfOtherChildrenAtSchool}
                         onChange={(e) => setSiblings({ ...siblings, numberOfOtherChildrenAtSchool: e.target.value })}
                         type="text"
-                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring--180483? no
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Position in the family (e.g. first)</label>
+                      <input
+                        value={siblings.positionInFamily}
+                        onChange={(e) => setSiblings({ ...siblings, positionInFamily: e.target.value })}
+                        type="text"
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Sibling 1 name</label>
+                      <input
+                        value={siblings.sibling1Name}
+                        onChange={(e) => setSiblings({ ...siblings, sibling1Name: e.target.value })}
+                        type="text"
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Sibling 1 grade</label>
+                      <input
+                        value={siblings.sibling1Grade}
+                        onChange={(e) => setSiblings({ ...siblings, sibling1Grade: e.target.value })}
+                        type="text"
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Sibling 2 name</label>
+                      <input
+                        value={siblings.sibling2Name}
+                        onChange={(e) => setSiblings({ ...siblings, sibling2Name: e.target.value })}
+                        type="text"
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Sibling 2 grade</label>
+                      <input
+                        value={siblings.sibling2Grade}
+                        onChange={(e) => setSiblings({ ...siblings, sibling2Grade: e.target.value })}
+                        type="text"
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Sibling 3 name</label>
+                      <input
+                        value={siblings.sibling3Name}
+                        onChange={(e) => setSiblings({ ...siblings, sibling3Name: e.target.value })}
+                        type="text"
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Sibling 3 grade</label>
+                      <input
+                        value={siblings.sibling3Grade}
+                        onChange={(e) => setSiblings({ ...siblings, sibling3Grade: e.target.value })}
+                        type="text"
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="mt-6 text-xs text-gray-500">
+                    Tip: Only fill sibling names/grades if they are currently at this school.
+                  </div>
+                </section>
+              </>
+            ) : null}
+
+            {step === 3 ? (
+              <>
+                <section>
+                  <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2 mb-4">
+                    <User size={20} className="text-school-green" /> Parent/Guardian information
+                  </h3>
+
+                  <div className="bg-gray-50 border border-gray-200 rounded-2xl p-5">
+                    <div className="font-black text-xs text-gray-700 uppercase tracking-widest mb-4">Parent/Guardian 1</div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div className="space-y-2">
+                        <label className="text-sm font-bold text-gray-700">Title</label>
+                        <input value={parent1.title} onChange={(e) => setParent1({ ...parent1, title: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-bold text-gray-700">Initials</label>
+                        <input value={parent1.initials} onChange={(e) => setParent1({ ...parent1, initials: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-bold text-gray-700">Gender</label>
+                        <select value={parent1.gender} onChange={(e) => setParent1({ ...parent1, gender: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none">
+                          <option value="">Select</option>
+                          <option>Male</option>
+                          <option>Female</option>
+                        </select>
+                      </div>
+
+                      <div className="space-y-2">
+                        <label className="text-sm font-bold text-gray-700">First name</label>
+                        <input required value={parent1.firstName} onChange={(e) => setParent1({ ...parent1, firstName: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-bold text-gray-700">Surname</label>
+                        <input required value={parent1.surname} onChange={(e) => setParent1({ ...parent1, surname: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-bold text-gray-700">Identification / Passport No.</label>
+                        <input value={parent1.identificationNumber} onChange={(e) => setParent1({ ...parent1, identificationNumber: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                      </div>
+
+                      <div className="space-y-2">
+                        <label className="text-sm font-bold text-gray-700">Account payer</label>
+                        <select value={parent1.accountPayer} onChange={(e) => setParent1({ ...parent1, accountPayer: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none">
+                          <option>Yes</option>
+                          <option>No</option>
+                        </select>
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-bold text-gray-700">Relationship to learner</label>
+                        <input value={parent1.relationshipToLearner} onChange={(e) => setParent1({ ...parent1, relationshipToLearner: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" placeholder="Mother/Father/Guardian" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-bold text-gray-700">Learner resides with this parent</label>
+                        <select value={parent1.learnerResidesWithThisParent} onChange={(e) => setParent1({ ...parent1, learnerResidesWithThisParent: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none">
+                          <option value="">Select</option>
+                          <option>Yes</option>
+                          <option>No</option>
+                        </select>
+                      </div>
+
+                      <div className="space-y-2 md:col-span-2">
+                        <label className="text-sm font-bold text-gray-700">Residential street address</label>
+                        <input value={parent1.residentialStreetAddress} onChange={(e) => setParent1({ ...parent1, residentialStreetAddress: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-bold text-gray-700">City/Suburb</label>
+                        <input value={parent1.citySuburb} onChange={(e) => setParent1({ ...parent1, citySuburb: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-bold text-gray-700">Code</label>
+                        <input value={parent1.code} onChange={(e) => setParent1({ ...parent1, code: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                      </div>
+
+                      <div className="space-y-2">
+                        <label className="text-sm font-bold text-gray-700">Employer</label>
+                        <input value={parent1.employer} onChange={(e) => setParent1({ ...parent1, employer: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-bold text-gray-700">Occupation</label>
+                        <input value={parent1.occupation} onChange={(e) => setParent1({ ...parent1, occupation: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-bold text-gray-700">Marital status of parent</label>
+                        <input value={parent1.maritalStatusOfParent} onChange={(e) => setParent1({ ...parent1, maritalStatusOfParent: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 flex items-center gap-3">
+                    <input
+                      id="secondParent"
+                      type="checkbox"
+                      checked={hasSecondParent}
+                      onChange={(e) => setHasSecondParent(e.target.checked)}
+                      className="h-4 w-4"
+                    />
+                    <label htmlFor="secondParent" className="text-sm text-gray-700 font-semibold">
+                      Parent/Guardian 2 lives at a different address
+                    </label>
+                  </div>
+
+                  {hasSecondParent ? (
+                    <div className="mt-4 bg-gray-50 border border-gray-200 rounded-2xl p-5">
+                      <div className="font-black text-xs text-gray-700 uppercase tracking-widest mb-4">Parent/Guardian 2</div>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="space-y-2">
+                          <label className="text-sm font-bold text-gray-700">First name</label>
+                          <input value={parent2.firstName} onChange={(e) => setParent2({ ...parent2, firstName: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                        </div>
+                        <div className="space-y-2">
+                          <label className="text-sm font-bold text-gray-700">Surname</label>
+                          <input value={parent2.surname} onChange={(e) => setParent2({ ...parent2, surname: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                        </div>
+                        <div className="space-y-2">
+                          <label className="text-sm font-bold text-gray-700">Identification / Passport No.</label>
+                          <input value={parent2.identificationNumber} onChange={(e) => setParent2({ ...parent2, identificationNumber: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                        </div>
+                        <div className="space-y-2 md:col-span-2">
+                          <label className="text-sm font-bold text-gray-700">Residential street address</label>
+                          <input value={parent2.residentialStreetAddress} onChange={(e) => setParent2({ ...parent2, residentialStreetAddress: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                        </div>
+                        <div className="space-y-2">
+                          <label className="text-sm font-bold text-gray-700">City/Suburb</label>
+                          <input value={parent2.citySuburb} onChange={(e) => setParent2({ ...parent2, citySuburb: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                        </div>
+                      </div>
+                    </div>
+                  ) : null}
+                </section>
+
+                {/* Correspondence + Other contact */}
+                <section className="pt-6 border-t border-gray-100">
+                  <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2 mb-4">
+                    <Mail size={20} className="text-school-green" /> Correspondence & contact details
+                  </h3>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Correspondence title</label>
+                      <input value={correspondence.title} onChange={(e) => setCorrespondence({ ...correspondence, title: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Correspondence surname</label>
+                      <input value={correspondence.surname} onChange={(e) => setCorrespondence({ ...correspondence, surname: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                    </div>
+                    <div className="space-y-2 md:col-span-2">
+                      <label className="text-sm font-bold text-gray-700">Postal address</label>
+                      <input value={correspondence.postalAddress} onChange={(e) => setCorrespondence({ ...correspondence, postalAddress: e.target.value })} className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Home telephone</label>
+                      <input value={otherContact.homeTelephone} onChange={(e) => setOtherContact({ ...otherContact, homeTelephone: e.target.value })} type="tel" className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Cell number</label>
+                      <input value={otherContact.cellNumber} onChange={(e) => setOtherContact({ ...otherContact, cellNumber: e.target.value })} type="tel" className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Work telephone</label>
+                      <input value={otherContact.workTelephone} onChange={(e) => setOtherContact({ ...otherContact, workTelephone: e.target.value })} type="tel" className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Fax number</label>
+                      <input value={otherContact.faxNumber} onChange={(e) => setOtherContact({ ...otherContact, faxNumber: e.target.value })} type="tel" className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                    </div>
+
+                    <div className="space-y-2 md:col-span-2">
+                      <label className="text-sm font-bold text-gray-700">Email address</label>
+                      <input value={otherContact.emailAddress} onChange={(e) => setOtherContact({ ...otherContact, emailAddress: e.target.value })} type="email" className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Spouse work telephone</label>
+                      <input value={otherContact.spouseWorkTelephoneNumber} onChange={(e) => setOtherContact({ ...otherContact, spouseWorkTelephoneNumber: e.target.value })} type="tel" className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Spouse cell number</label>
+                      <input value={otherContact.spouseCellNumber} onChange={(e) => setOtherContact({ ...otherContact, spouseCellNumber: e.target.value })} type="tel" className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                    </div>
+                    <div className="space-y-2 md:col-span-2">
+                      <label className="text-sm font-bold text-gray-700">Spouse email address</label>
+                      <input value={otherContact.spouseEmailAddress} onChange={(e) => setOtherContact({ ...otherContact, spouseEmailAddress: e.target.value })} type="email" className="w-full p-3 rounded-xl border border-gray-200 outline-none" />
+                    </div>
+                  </div>
+                </section>
+
+                {/* Uploads */}
+                <section className="pt-6 border-t border-gray-100 space-y-4">
+                  <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2">
+                    <Upload size={20} className="text-school-green" /> Required documents
+                  </h3>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {uploadFields.map((doc) => (
+                      <div key={doc.key} className="border-2 border-dashed border-gray-200 rounded-2xl p-5 text-left bg-white">
+                        <div className="flex items-start gap-3">
+                          <div className="p-3 rounded-xl bg-gray-50 border border-gray-100 text-school-green shrink-0">
+                            {doc.key === 'residence' ? <Home size={20} /> : <FileText size={20} />}
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <div className="flex items-center gap-2">
+                              <p className="text-sm font-bold text-gray-900 truncate">{doc.label}</p>
+                              {doc.required ? (
+                                <span className="text-[10px] font-black uppercase tracking-widest text-red-600">Required</span>
+                              ) : (
+                                <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">Optional</span>
+                              )}
+                            </div>
+                            <p className="text-xs text-gray-500 mt-1">PDF recommended</p>
+                            <p className="text-xs text-gray-700 mt-2 font-medium">
+                              {files[doc.key] ? `Selected: ${files[doc.key]!.name}` : 'No file selected'}
+                            </p>
+
+                            <label className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-school-green cursor-pointer">
+                              <Upload size={16} /> Choose file
+                              <input
+                                type="file"
+                                accept="application/pdf,image/*"
+                                className="hidden"
+                                onChange={(e) => {
+                                  const file = e.target.files?.[0] || null;
+                                  setFiles((prev) => ({ ...prev, [doc.key]: file }));
+                                }}
+                              />
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {missingRequiredUploads.length > 0 ? (
+                    <div className="text-xs text-red-600 font-semibold">
+                      Missing required uploads: {missingRequiredUploads.map((m) => m.label).join(', ')}
+                    </div>
+                  ) : null}
+                </section>
+
+                <div className="bg-yellow-50 p-4 rounded-xl flex gap-3 items-start">
+                  <AlertCircle className="text-yellow-600 shrink-0" size={20} />
+                  <p className="text-sm text-yellow-800">
+                    By submitting this form, you confirm that the information provided is true and correct. Incomplete applications may not be processed.
+                  </p>
+                </div>
+              </>
+            ) : null}
+
+            {error ? (
+              <div className="bg-red-50 p-4 rounded-xl flex gap-3 items-start">
+                <Shield className="text-red-600 shrink-0" size={20} />
+                <p className="text-sm text-red-800">{error}</p>
+              </div>
+            ) : null}
+
+            <div className="flex flex-col sm:flex-row gap-3 justify-between">
+              <button
+                type="button"
+                onClick={goBack}
+                disabled={step === 1}
+                className="w-full sm:w-auto bg-gray-100 hover:bg-gray-200 text-gray-800 px-6 py-3 rounded-xl font-bold disabled:opacity-50"
+              >
+                Back
+              </button>
+
+              {step < 3 ? (
+                <button
+                  type="button"
+                  onClick={goNext}
+                  className="w-full sm:w-auto btn-primary px-8 py-3 font-bold"
+                >
+                  Next
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="w-full sm:w-auto btn-primary px-8 py-3 font-bold disabled:opacity-60"
+                >
+                  {submitting ? 'Submitting...' : 'Submit application'}
+                </button>
+              )}
+            </div>
+          </form>
+        </div>
+
+        <p className="text-xs text-gray-500 mt-4">
+          Note: Applications and uploads are saved in the school browser storage for this demo. For a real deployment,
+          connect the staff portal to a database so staff can access submissions from any device.
+        </p>
+      </div>
+    </div>
+  );
+};
