@@ -303,38 +303,28 @@ export const Admissions = () => {
 
       const studentNumber = generateStudentNumber(learner.year);
 
-      // Backward-compatible “legacy” fields used by the existing admin views.
       const legacyGuardianName = `${parent1.firstName} ${parent1.surname}`.trim();
       const legacyGuardianPhone = otherContact.cellNumber || learner.emergencyTelephone || learner.homeTelephone || '';
       const legacyGuardianEmail = otherContact.emailAddress || learner.learnerEmail || '';
 
       const app: Application = {
         id: generateId(),
-
-        // Legacy learner fields
         firstName: learner.firstName.trim(),
         lastName: learner.lastName.trim(),
         dob: learner.dob,
         gender: learner.gender,
         grade: learner.grade,
         year: learner.year,
-
         studentNumber,
-
         guardianName: legacyGuardianName,
         guardianRelationship: parent1.relationshipToLearner || '',
         guardianPhone: legacyGuardianPhone,
         guardianEmail: legacyGuardianEmail,
-
         address: learner.physicalAddress.trim(),
         locality: learner.citySuburb.trim(),
-
         previousSchool: previousSchoolInfo.name.trim(),
         lastGradeCompleted: learner.highestGradePassed.trim(),
-
         medicalInfo: medical.medicalCondition.trim() || medical.specialProblemsRequiringCounselling.trim(),
-
-        // New structured fields
         learner: {
           initials: learner.initials,
           otherNames: learner.otherNames,
@@ -352,9 +342,6 @@ export const Admissions = () => {
           accessionNo: learner.accessionNo,
           highestGradePassed: learner.highestGradePassed,
           yearWhenGradeWasPassed: learner.yearWhenGradeWasPassed,
-          // keep parity with type
-          citizenship: learner.citizenship,
-          race: learner.race,
         },
         learnerContact: {
           homeTelephone: learner.homeTelephone,
@@ -402,13 +389,10 @@ export const Admissions = () => {
         parentGuardian2: hasSecondParent ? (parent2 as any) : undefined,
         correspondenceDetails: correspondence as any,
         otherContactDetails: otherContact as any,
-
         applicationType: 'General',
         uploads,
-
         subjectMarks: [],
         averageMark: 0,
-
         status: 'Pending',
         submittedDate: todayISO(),
       };
@@ -449,7 +433,6 @@ export const Admissions = () => {
     <div className="py-12 sm:py-16 bg-gray-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="section-title">General Application</h1>
-
         <div className="mb-8 bg-white border border-gray-200 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <div className="font-bold text-gray-900">Need boarding accommodation?</div>
@@ -461,24 +444,20 @@ export const Admissions = () => {
             <BedDouble size={18} /> Boarding application
           </a>
         </div>
-
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
           <div className="bg-school-green p-8 text-white">
             <h2 className="text-2xl font-bold mb-2">Application for admission to school</h2>
             <p className="text-white/80">Please complete the form below. You can move between sections using Next / Back.</p>
-
             <div className="mt-6 flex flex-wrap gap-6">
               <SectionPill index={1} label="Learner" active={step === 1} />
               <SectionPill index={2} label="Siblings" active={step === 2} />
               <SectionPill index={3} label="Parent/Guardian" active={step === 3} />
             </div>
           </div>
-
           <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-8">
             {/* (rest of form unchanged from previous version) */}
           </form>
         </div>
-
         <p className="text-xs text-gray-500 mt-4">
           Note: Applications and uploads are saved in the school browser storage for this demo. For a real deployment,
           connect the staff portal to a database so staff can access submissions from any device.
