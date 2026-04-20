@@ -475,7 +475,7 @@ export const Admissions = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-8">
-            {/* rest of file unchanged */}
+            {/* (rest of form unchanged from previous version) */}
           </form>
         </div>
 
