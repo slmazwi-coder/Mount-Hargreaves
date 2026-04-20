@@ -821,4 +821,159 @@ export const Admissions = () => {
                         value={previousSchoolInfo.province}
                         onChange={(e) => setPreviousSchoolInfo({ ...previousSchoolInfo, province: e.target.value })}
                         type="text"
-                        className="w-full p-3 rounded-xl border border-gray--180483? no, too long
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      />
+                    </div>
+                    <div className="space-y-2 md:col-span-2">
+                      <label className="text-sm font-bold text-gray-700">Country</label>
+                      <input
+                        value={previousSchoolInfo.country}
+                        onChange={(e) => setPreviousSchoolInfo({ ...previousSchoolInfo, country: e.target.value })}
+                        type="text"
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      />
+                    </div>
+                  </div>
+                </section>
+
+                {/* Medical */}
+                <section className="pt-6 border-t border-gray-100">
+                  <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2 mb-4">
+                    <HeartPulse size={20} className="text-school-green" /> Learner medical information
+                  </h3>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Medical aid number</label>
+                      <input
+                        value={medical.medicalAidNumber}
+                        onChange={(e) => setMedical({ ...medical, medicalAidNumber: e.target.value })}
+                        type="text"
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Medical aid name</label>
+                      <input
+                        value={medical.medicalAidName}
+                        onChange={(e) => setMedical({ ...medical, medicalAidName: e.target.value })}
+                        type="text"
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      />
+                    </div>
+                    <div className="space-y-2 md:col-span-2">
+                      <label className="text-sm font-bold text-gray-700">Medical aid main member</label>
+                      <input
+                        value={medical.medicalAidMainMember}
+                        onChange={(e) => setMedical({ ...medical, medicalAidMainMember: e.target.value })}
+                        type="text"
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Doctor name</label>
+                      <input
+                        value={medical.doctorName}
+                        onChange={(e) => setMedical({ ...medical, doctorName: e.target.value })}
+                        type="text"
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Doctor telephone number</label>
+                      <input
+                        value={medical.doctorTelephoneNumber}
+                        onChange={(e) => setMedical({ ...medical, doctorTelephoneNumber: e.target.value })}
+                        type="tel"
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      />
+                    </div>
+                    <div className="space-y-2 md:col-span-2">
+                      <label className="text-sm font-bold text-gray-700">Doctor's address</label>
+                      <input
+                        value={medical.doctorAddress}
+                        onChange={(e) => setMedical({ ...medical, doctorAddress: e.target.value })}
+                        type="text"
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      />
+                    </div>
+
+                    <div className="space-y-2 md:col-span-2">
+                      <label className="text-sm font-bold text-gray-700">Medical condition</label>
+                      <input
+                        value={medical.medicalCondition}
+                        onChange={(e) => setMedical({ ...medical, medicalCondition: e.target.value })}
+                        type="text"
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      />
+                    </div>
+
+                    <div className="space-y-2 md:col-span-2">
+                      <label className="text-sm font-bold text-gray-700">Special problems requiring counselling</label>
+                      <input
+                        value={medical.specialProblemsRequiringCounselling}
+                        onChange={(e) => setMedical({ ...medical, specialProblemsRequiringCounselling: e.target.value })}
+                        type="text"
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Dexterity</label>
+                      <select
+                        value={medical.dexterity}
+                        onChange={(e) => setMedical({ ...medical, dexterity: e.target.value })}
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      >
+                        <option value="">Select</option>
+                        <option>Right Handed</option>
+                        <option>Left Handed</option>
+                        <option>Ambidextrous</option>
+                      </select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Social grant (Reg.)</label>
+                      <select
+                        value={medical.socialGrantReg}
+                        onChange={(e) => setMedical({ ...medical, socialGrantReg: e.target.value })}
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      >
+                        <option value="">Select</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                      </select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Social grant (Rec.)</label>
+                      <select
+                        value={medical.socialGrantRec}
+                        onChange={(e) => setMedical({ ...medical, socialGrantRec: e.target.value })}
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                      >
+                        <option value="">Select</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                      </select>
+                    </div>
+                  </div>
+                </section>
+              </>
+            ) : null}
+
+            {step === 2 ? (
+              <>
+                <section>
+                  <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2 mb-4">
+                    <Users size={20} className="text-school-green" /> Sibling information
+                  </h3>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Number of other children at this school</label>
+                      <input
+                        value={siblings.numberOfOtherChildrenAtSchool}
+                        onChange={(e) => setSiblings({ ...siblings, numberOfOtherChildrenAtSchool: e.target.value })}
+                        type="text"
+                        className="w-full p-3 rounded-xl border border-gray-200 focus:ring--180483? no
