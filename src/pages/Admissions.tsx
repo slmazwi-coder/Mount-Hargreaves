@@ -303,7 +303,8 @@ export const Admissions = () => {
       const studentNumber = generateStudentNumber(learner.year);
 
       const legacyGuardianName = `${parent1.firstName} ${parent1.surname}`.trim();
-      const legacyGuardianPhone = otherContact.cellNumber || learner.emergencyTelephone || learner.homeTelephone || '';
+      const legacyGuardianPhone =
+        otherContact.cellNumber || learner.emergencyTelephone || learner.homeTelephone || '';
       const legacyGuardianEmail = otherContact.emailAddress || learner.learnerEmail || '';
 
       const app: Application = {
