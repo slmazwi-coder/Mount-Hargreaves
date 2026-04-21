@@ -347,9 +347,9 @@ export const Admissions = () => {
     return (
       <div className="py-20 flex items-center justify-center min-h-[60vh]">
         <motion.div
-          initial= opacity: 0, y: 18, scale: 0.98 
-          animate= opacity: 1, y: 0, scale: 1 
-          transition= duration: 0.25 
+          initial={{ opacity: 0, y: 18, scale: 0.98 }}
+   animate={{ opacity: 1, y: 0, scale: 1 }}
+   transition={{ duration: 0.25 }} 
           className="text-center p-10 sm:p-12 bg-white rounded-3xl shadow-2xl max-w-md"
         >
           <div className="w-20 h-20 bg-green-100 text-school-green rounded-full flex items-center justify-center mx-auto mb-6">
