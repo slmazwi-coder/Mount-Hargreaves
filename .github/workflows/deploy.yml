@@ -1,0 +1,22 @@
+name: Deploy School Website
+on:
+  push:
+    branches:
+      - main  # or master
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+
+    - name: 📂 Sync files to Server
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        # DirectAdmin stores files in this specific path
+        server-dir: domains/mthargreavessss.co.za/public_html/
