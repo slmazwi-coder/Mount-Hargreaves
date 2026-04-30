@@ -1,17 +1,31 @@
 name: 🚀 Deploy School Website
-
 on:
   push:
     branches:
-      - main  # Change this to 'master' if your branch is named master
-
+      - main
 jobs:
   web-deploy:
-    name: 🎉 Sync Files
+    name: 🎉 Build and Sync Files
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v4
+
+    - name: ⚙️ Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: 📦 Install dependencies
+      run: npm install
+
+    - name: 🔑 Create .env file
+      run: |
+        echo "VITE_GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}" >> .env
+        echo "APP_URL=https://mthargreavessss.co.za" >> .env
+
+    - name: 🏗️ Build project
+      run: npm run build
 
     - name: 📂 Sync files to Host Africa
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -19,10 +33,7 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        # Since the FTP user is set to 'Domain' level in DirectAdmin,
-        # it starts inside the domain folder, so we just enter public_html
         server-dir: public_html/
         port: 21
         protocol: ftp
-        # 'local-dir: ./' ensures all files from your GitHub repo are sent
-        local-dir: ./
+        local-dir: ./dist/
