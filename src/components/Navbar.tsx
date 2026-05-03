@@ -6,6 +6,7 @@ import { cn } from '../lib/utils';
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
+  { name: 'Staff', path: '/staff' },
   { name: 'Documents', path: '/documents' },
   { name: 'Achievements', path: '/achievements' },
   { name: 'Sport', path: '/sport' },
@@ -27,7 +28,7 @@ export const Navbar = () => {
             <Link to="/" className="flex items-center gap-3">
               <div className="h-12 w-12 rounded-xl bg-white flex items-center justify-center border border-gray-200 shadow-lg overflow-hidden">
                 <img
-                  src="/assets/Copilot_20260418_114207.png"
+                  src="./assets/Copilot_20260418_114207.png"
                   alt="My Hargreaves SSS logo"
                   className="h-full w-full object-cover"
                 />
