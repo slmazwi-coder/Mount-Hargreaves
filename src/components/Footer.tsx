@@ -55,7 +55,7 @@ export const Footer = () => {
                 aria-label="Facebook"
               >
                 <Facebook size={18} />
-              </a>
+              </Link>
               <a
                 href="https://www.tiktok.com/@mt.hargreavessss"
                 target="_blank"
@@ -64,7 +64,7 @@ export const Footer = () => {
                 aria-label="TikTok"
               >
                 <TikTokIcon size={18} />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -105,9 +105,9 @@ export const Footer = () => {
                 { label: 'Student Portal', href: '/student/login' },
               ].map(link => (
                 <li key={link.href}>
-                  <a href={link.href} className="hover:text-white transition-colors">
+                  <Link to={link.href} className="hover:text-white transition-colors">
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
