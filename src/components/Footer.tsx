@@ -33,7 +33,7 @@ export const Footer = () => {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-bold">My Hargreaves SSS</h3>
+              <h3 className="text-2xl font-bold">Mt Hargreaves Senior Secondary School</h3>
             </div>
             <p className="text-white/80 mb-6 italic">"we can"</p>
             <div className="flex gap-4">
@@ -117,7 +117,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-white/10 pt-8 text-center text-white/70 text-sm">
-          <p>© {new Date().getFullYear()} My Hargreaves Senior Secondary School. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} Mt Hargreaves Senior Secondary School. All Rights Reserved.</p>
           <Link
             to="/admin/login"
             className="text-white/40 hover:text-white/70 text-xs mt-2 inline-block transition-colors"
