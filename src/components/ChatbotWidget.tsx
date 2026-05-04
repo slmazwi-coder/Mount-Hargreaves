@@ -81,8 +81,8 @@ function findApplication(apps: Application[], q: StatusQuery) {
 // ── Vulavula: detect language ────────────────────────────────────────────────
 async function detectLanguage(text: string): Promise<SupportedLang> {
   try {
-    const vulavulaKey = process.env.VULAVULA_API_KEY;
-    if (!vulavulaKey) return 'eng';
+    const vulavulaKey = (process.env.VULAVULA_API_KEY as string) || "";
+    
 
     const res = await fetch('https://vulavula-services.lelapa.ai/api/v1/classify/process', {
       method: 'POST',
@@ -114,8 +114,8 @@ async function translateText(
 ): Promise<string> {
   if (sourceLang === targetLang) return text;
   try {
-    const vulavulaKey = process.env.VULAVULA_API_KEY;
-    if (!vulavulaKey) return text;
+    const vulavulaKey = (process.env.VULAVULA_API_KEY as string) || "";
+    
 
     const res = await fetch('https://vulavula-services.lelapa.ai/api/v1/translate/process', {
       method: 'POST',
@@ -140,8 +140,8 @@ async function translateText(
 
 // ── Gemini: get AI answer ────────────────────────────────────────────────────
 async function askGemini(userMessage: string): Promise<string> {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) return "I'm sorry, I'm not configured correctly. Please contact the school directly.";
+  const apiKey = (process.env.GEMINI_API_KEY as string) || "";
+  if (!apiKey) { console.error('GEMINI_API_KEY is missing'); return "I'm sorry, I'm not configured correctly. Please contact the school directly."; }
 
   const systemPrompt = `You are a helpful school assistant for Mt Hargreaves Senior Secondary School in Matatiele, Eastern Cape, South Africa.
   
