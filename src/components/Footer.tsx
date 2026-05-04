@@ -25,7 +25,7 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Grid: stacks on mobile, 4 cols on desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
 
           {/* Col 1 — Logo + Name + Socials */}
           <div className="sm:col-span-2 lg:col-span-1">
@@ -89,31 +89,7 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Col 3 — Quick Links */}
-          <div>
-            <h4 className="text-sm font-bold mb-4 border-b border-white/20 pb-2 uppercase tracking-wide">
-              Quick Links
-            </h4>
-            <ul className="space-y-2 text-white/80 text-sm">
-              {[
-                { label: 'About Our School', href: '/about' },
-                { label: 'Staff', href: '/staff' },
-                { label: 'Documents', href: '/documents' },
-                { label: 'Achievements', href: '/achievements' },
-                { label: 'General Application', href: '/admissions' },
-                { label: 'Boarding Application', href: '/boarding' },
-                { label: 'Student Portal', href: '/student/login' },
-              ].map(link => (
-                <li key={link.href}>
-                  <Link to={link.href} className="hover:text-white transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Col 4 — School Hours */}
+          {/* Col 3 — School Hours */}
           <div>
             <h4 className="text-sm font-bold mb-4 border-b border-white/20 pb-2 uppercase tracking-wide">
               School Hours
