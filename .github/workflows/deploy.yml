@@ -33,13 +33,38 @@ jobs:
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         VULAVULA_API_KEY: ${{ secrets.VULAVULA_API_KEY }}
 
+    - name: 🔍 List FTP directory structure
+      run: |
+        sudo apt-get install -y lftp > /dev/null 2>&1
+        lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}:21" -e "
+          echo '=== FTP ROOT ==='
+          ls
+          echo '=== /domains/ ==='
+          ls /domains/ 2>/dev/null || echo 'not found'
+          echo '=== /domains/mthargreavessss.co.za/ ==='
+          ls /domains/mthargreavessss.co.za/ 2>/dev/null || echo 'not found'
+          echo '=== /domains/mthargreavessss.co.za/public_html/ ==='
+          ls /domains/mthargreavessss.co.za/public_html/ 2>/dev/null || echo 'not found'
+          echo '=== /domains/mthargreavessss.co.za/domains/ ==='
+          ls /domains/mthargreavessss.co.za/domains/ 2>/dev/null || echo 'not found'
+          echo '=== /domains/mthargreavessss.co.za/domains/mthargreavessss.co.za/ ==='
+          ls /domains/mthargreavessss.co.za/domains/mthargreavessss.co.za/ 2>/dev/null || echo 'not found'
+          echo '=== /domains/mthargreavessss.co.za/domains/mthargreavessss.co.za/public_html/ ==='
+          ls /domains/mthargreavessss.co.za/domains/mthargreavessss.co.za/public_html/ 2>/dev/null || echo 'not found'
+          echo '=== /domains/mthargreavessss.co.za/domains/mthargreavessss.co.za/domains/mthargreavessss.co.za/public_html/ ==='
+          ls /domains/mthargreavessss.co.za/domains/mthargreavessss.co.za/domains/mthargreavessss.co.za/public_html/ 2>/dev/null || echo 'not found'
+          echo '=== /public_html/ ==='
+          ls /public_html/ 2>/dev/null || echo 'not found'
+          bye
+        "
+
     - name: 📂 Sync files to Host Africa
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: /domains/mthargreavessss.co.za/domains/mthargreavessss.co.za/domains/mthargreavessss.co.za/public_html/
+        server-dir: /domains/mthargreavessss.co.za/public_html/
         port: 21
         protocol: ftp
         local-dir: ./dist/
