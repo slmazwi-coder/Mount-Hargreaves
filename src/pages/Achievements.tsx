@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Trophy, Star, TrendingUp, BarChart3, Medal, Calendar, Award, Image as ImageIcon } from 'lucide-react';
+import { SEO } from '../components/SEO';
 import { getHallOfFame, getResultsByYear, type HallOfFameEntry, type YearResults } from '../admin/utils/storage';
 
 // Put your achiever images in:
@@ -65,6 +66,11 @@ export const Achievements = () => {
 
   return (
     <div className="py-12 sm:py-16 bg-white min-h-screen">
+      <SEO
+        title="Achievements"
+        description="View Mount Hargreaves SSS academic achievements, matric results, and hall of fame. 94.5% matric pass rate, 71.8% bachelors pass rate, and 451 subject distinctions."
+        path="/achievements"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="section-title text-center mb-12 sm:mb-16">Academic Excellence</h1>
 

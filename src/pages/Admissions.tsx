@@ -10,6 +10,7 @@ import {
   ChevronLeft,
   AlertCircle,
 } from 'lucide-react';
+import { SEO } from '../components/SEO';
 import {
   generateId,
   generateStudentNumber,
@@ -286,6 +287,11 @@ export const Admissions = () => {
 
   return (
     <div className="py-12 sm:py-16 bg-gray-50">
+      <SEO
+        title="General Application"
+        description="Apply online to Mount Hargreaves Senior Secondary School. Submit your general admission application for Grades 8–12 for the 2027 academic year."
+        path="/admissions"
+      />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="section-title">General Application for Admission</h1>
 

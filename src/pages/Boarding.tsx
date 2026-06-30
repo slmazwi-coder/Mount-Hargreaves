@@ -4,6 +4,7 @@ import {
   CheckCircle, Upload, X, ChevronLeft, ChevronRight,
   AlertCircle, Download, FileText, BedDouble, Info,
 } from 'lucide-react';
+import { SEO } from '../components/SEO';
 import {
   generateId,
   generateStudentNumber,
@@ -425,6 +426,11 @@ export const Boarding = () => {
 
   return (
     <div className="py-12 sm:py-16 bg-gray-50">
+      <SEO
+        title="Boarding Application"
+        description="Apply for boarding accommodation at Mount Hargreaves Senior Secondary School. Submit your hostel application for the 2027 academic year. Sigoga Location, Matatiele."
+        path="/boarding"
+      />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="section-title">Boarding Application</h1>
 

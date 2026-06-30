@@ -5,10 +5,10 @@ import { ChevronLeft, ChevronRight, Image as ImageIcon, ArrowRight, Play } from 
 const SLIDE_DURATION = 6000;
 
 const slides = [
-  { url: '/assets/hero/images (2).jpeg', title: 'Academic', subtitle: 'Excellence', caption: 'Empowering minds for a brighter tomorrow.' },
-  { url: '/assets/hero/images (1).jpeg', title: 'Discipline', subtitle: '& Pride', caption: 'Building character through dedication and respect.' },
-  { url: '/assets/hero/3e7e487a933835fd2aa5936d57c7cdd6.png', title: 'Our Team', subtitle: '& Community', caption: 'Fostering unity and collaboration in every endeavor.' },
-  { url: '/assets/hero/d8d53f724e0b195658e83c643a6b491e.png', title: 'Celebrating', subtitle: 'Achievements', caption: 'Honoring hard work, dedication, and success.' },
+  { url: '/assets/hero/images (2).jpeg', title: 'Academic', subtitle: 'Excellence', caption: 'Empowering minds for a brighter tomorrow.', alt: 'Mount Hargreaves SSS students demonstrating academic excellence' },
+  { url: '/assets/hero/images (1).jpeg', title: 'Discipline', subtitle: '& Pride', caption: 'Building character through dedication and respect.', alt: 'Mount Hargreaves SSS learners showing discipline and school pride' },
+  { url: '/assets/hero/3e7e487a933835fd2aa5936d57c7cdd6.png', title: 'Our Team', subtitle: '& Community', caption: 'Fostering unity and collaboration in every endeavor.', alt: 'Mount Hargreaves SSS staff and school community' },
+  { url: '/assets/hero/d8d53f724e0b195658e83c643a6b491e.png', title: 'Celebrating', subtitle: 'Achievements', caption: 'Honoring hard work, dedication, and success.', alt: 'Mount Hargreaves SSS celebrating student achievements' },
 ];
 
 export const Hero = () => {
@@ -79,7 +79,7 @@ export const Hero = () => {
                 animate={{ scale: 1.15 }}
                 transition={{ duration: SLIDE_DURATION / 1000 + 2, ease: 'linear' }}
                 src={slide.url}
-                alt={slide.title}
+                alt={slide.alt}
                 className="w-full h-full object-cover object-center"
                 onError={() => setFailed((p) => ({ ...p, [currentIndex]: true }))}
               />

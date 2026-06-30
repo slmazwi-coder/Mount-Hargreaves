@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Image as ImageIcon } from 'lucide-react';
+import { SEO } from '../components/SEO';
 import { getAbout, type AboutInfo } from '../admin/utils/storage';
 
 export const About = () => {
@@ -17,6 +18,11 @@ export const About = () => {
 
   return (
     <div className="py-12 sm:py-16 bg-white">
+      <SEO
+        title="About Us"
+        description="Learn about Mount Hargreaves Senior Secondary School in Matatiele, Eastern Cape. Meet the principal, discover our history, vision, and commitment to academic excellence under the CAPS curriculum."
+        path="/about"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Page Title */}
@@ -54,7 +60,7 @@ export const About = () => {
             {!campusFailed ? (
               <img
                 src={campusImageUrl}
-                alt="School campus"
+                alt="Mount Hargreaves Senior Secondary School campus in Matatiele"
                 className="w-full h-full object-cover"
                 onError={() => setCampusFailed(true)}
               />
@@ -97,7 +103,7 @@ export const About = () => {
                   {!principalFailed ? (
                     <img
                       src={principalImageUrl}
-                      alt="Principal"
+                      alt="Principal of Mount Hargreaves Senior Secondary School"
                       className="w-full h-full object-cover object-top"
                       onError={() => setPrincipalFailed(true)}
                     />
