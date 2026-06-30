@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+import { SEO } from '../components/SEO';
 import { getContact, type ContactInfo } from '../admin/utils/storage';
 
 export const Contact = () => {
@@ -12,6 +13,11 @@ export const Contact = () => {
 
   return (
     <div className="py-12 sm:py-16 bg-white">
+      <SEO
+        title="Contact Us"
+        description="Contact Mount Hargreaves Senior Secondary School in Matatiele, Eastern Cape. Phone: +27 76 707 3212. Email: office@mounthargreavesss.co.za. Find our address, school hours, and Google Maps location."
+        path="/contact"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="section-title">Contact Us</h1>
 

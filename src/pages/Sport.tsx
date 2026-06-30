@@ -1,5 +1,6 @@
 import React from 'react';
 import { Trophy, CalendarDays, Target, Users, Flag } from 'lucide-react';
+import { SEO } from '../components/SEO';
 
 const sports = [
   {
@@ -50,6 +51,11 @@ const results: Result[] = [
 export const Sport = () => {
   return (
     <div className="py-12 sm:py-16 bg-white min-h-screen">
+      <SEO
+        title="Sport"
+        description="Explore sports programmes at Mount Hargreaves SSS including soccer, netball, and athletics. View fixtures, results, and upcoming events."
+        path="/sport"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="section-title text-center">Sport</h1>
         <p className="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto">

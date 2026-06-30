@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { FileText, Download, Search, Folder } from 'lucide-react';
 import { cn } from '../lib/utils';
+import { SEO } from '../components/SEO';
 import { getDocuments, type DocumentItem } from '../admin/utils/storage';
 
 const grades = ['Grade 8', 'Grade 9', 'Grade 10', 'Grade 11', 'Grade 12'];
@@ -36,6 +37,11 @@ export const Documents = () => {
 
   return (
     <div className="py-16 bg-gray-50 min-h-screen">
+      <SEO
+        title="Documents"
+        description="Download student documents and resources from Mount Hargreaves SSS. Access past exam papers, study guides, and school documents for Grades 8–12."
+        path="/documents"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="section-title">Student Documents & Resources</h1>
         

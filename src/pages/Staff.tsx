@@ -1,5 +1,6 @@
 import React from 'react';
 import { User } from 'lucide-react';
+import { SEO } from '../components/SEO';
 
 interface StaffMember {
   name: string;
@@ -91,6 +92,11 @@ export const Staff = () => {
 
   return (
     <div className="min-h-screen py-12 px-4" style={{ background: '#f0f2f8' }}>
+      <SEO
+        title="Our Staff"
+        description="Meet the dedicated educators and support staff at Mount Hargreaves SSS. View our principal, deputy principal, departmental heads, class teachers, and hostel staff."
+        path="/staff"
+      />
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BookOpen, Mic, Sigma, Brain, Globe, PenTool } from 'lucide-react';
+import { SEO } from '../components/SEO';
 
 const activities = [
   {
@@ -37,6 +38,11 @@ const activities = [
 export const Activities = () => {
   return (
     <div className="py-12 sm:py-16 bg-white min-h-screen">
+      <SEO
+        title="Activities"
+        description="Discover extra-curricular activities at Mount Hargreaves SSS: Spelling Bee, Debate, Maths Olympiad, Science Club, Reading & Writing Club, and Geography Club."
+        path="/activities"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="section-title text-center">Activities</h1>
         <p className="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto">

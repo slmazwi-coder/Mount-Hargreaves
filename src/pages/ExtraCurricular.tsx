@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Trophy, Music, Users, Star, Dumbbell, Target, BookOpen, Mic } from 'lucide-react';
+import { SEO } from '../components/SEO';
 import { getActivities, type Activity } from '../admin/utils/storage';
 
 const sportsPrograms = [
@@ -110,6 +111,11 @@ export const ExtraCurricular = () => {
 
   return (
     <div className="py-16 bg-gray-50 min-h-screen">
+      <SEO
+        title="Sports & Culture"
+        description="Explore sports and cultural programmes at Mount Hargreaves SSS: soccer, rugby, netball, athletics, debate, choir, drama, and community service."
+        path="/extra-curricular"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="section-title text-center">Sports & Culture</h1>
         
